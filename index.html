@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gizmos</title>
+ 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #111;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.logo .dot {
+  color: orange;
+}
+
+.navbar {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: orange;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+.icons i {
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: 12px;
+  background-color: orange;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+.cart-total {
+  margin-left: 4px;
+  font-size: 1rem;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    background: #111;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+
+
+
+
+
+
+
+
+  
+}
+
+
+
+
+
+.hero {
+  background: linear-gradient(to right, #0d0d0d, #111);
+  color: #fff;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 550px;
+  z-index: 2;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.hero-text span {
+  font-size: 3.5rem;
+  color: #fff;
+  display: block;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: #aaa;
+  margin-bottom: 25px;
+}
+
+.btn {
+  background-color: #246bfd;
+  padding: 12px 28px;
+  border-radius: 6px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #1450d0;
+}
+
+.hero-image {
+  flex: 1;
+  max-width: 500px;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+}
+
+.nav-arrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  display: flex;
+  padding: 0 30px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.nav-arrows i {
+  font-size: 1.8rem;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 50%;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text span {
+    font-size: 2.5rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .nav-arrows {
+    display: none;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">Fluro-Tech<span class="dot">.</span></div>
+    
+    <nav class="navbar">
+      <a href="#">Home</a>
+      <a href="#">Pages</a>
+      <a href="#">Shop</a>
+      <a href="#">Blog</a>
+      <a href="#">Landing</a>
+    </nav>
+
+    <div class="icons">
+      <i class="fas fa-search"></i>
+      <!-- <i class="fas fa-exchange-alt"></i> -->
+      <i class="fas fa-user"></i>
+      <!-- <i class="far fa-heart"></i> -->
+      <div class="cart">
+        <i class="fas fa-shopping-cart"></i>
+        <!-- <span class="cart-count">0</span>
+        <span class="cart-total">$0</span> -->
+      </div>
+      <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+    </div>
+  </header>
+
+<!-- Swiper Slider -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<section class="hero">
+  <div class="swiper heroSwiper">
+    <div class="swiper-wrapper">
+
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Pro Gaming<br><span>Laptops</span></h1>
+            <p>VANTA CX70 2QF-621X</p>
+            <a href="#" class="btn">SHOP NOW <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="hero-image">
+            <img src="hero1.webp" alt="Gaming Headphones" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Ultimate Sound<br><span>Speakers</span></h1>
+            <p>SONYX 5000 BassBoost</p>
+            <a href="#" class="btn">SHOP NOW <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="hero-image">
+            <img src="hero2.webp" alt="Speakers" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more slides as needed -->
+    </div>
+
+    <!-- Arrows -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+
+<!-- Swiper Script -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const heroSwiper = new Swiper(".heroSwiper", {
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const navbar = document.querySelector('.navbar');
+
+  toggleBtn.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+  });
+</script>
+</body>
+</html>
